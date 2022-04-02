@@ -28,18 +28,17 @@ public class Guesser {
                 condition = false;
             }
         }
-        while (lowerBound.compareTo(upperBound) < 0) {
-            BigInteger difference = upperBound.subtract(lowerBound).divide(BigInteger.valueOf(2));
+        BigInteger difference = upperBound.subtract(lowerBound).divide(BigInteger.valueOf(2));
+        String test = "";
+        while (!test.equalsIgnoreCase("correct")) {
             lowerBound = upperBound.subtract(difference);
-            String test = c.guess(difference);
-            if (test.equalsIgnoreCase("correct")) {
-                return difference;
-            } else if (test.equalsIgnoreCase("higher")) {
-                upperBound = difference.subtract(BigInteger.valueOf(1));
-            } else {
-                lowerBound = difference.add(BigInteger.valueOf(1));
+            test = c.guess(lowerBound);
+            if (test.equalsIgnoreCase("higher")) {
+                upperBound = difference.add(BigInteger.valueOf(1));
+            } else if (test.equalsIgnoreCase("lower")) {
+                lowerBound = difference.subtract(BigInteger.valueOf(1));
             }
         }
-        return upperBound;
+        return difference;
     }
 }
