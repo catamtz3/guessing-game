@@ -28,17 +28,17 @@ public class Guesser {
                 condition = false;
             }
         }
-        BigInteger difference = upperBound.subtract(lowerBound).divide(BigInteger.valueOf(2));
         String test = "";
+        BigInteger average = new BigInteger("1");
         while (!test.equalsIgnoreCase("correct")) {
-            lowerBound = upperBound.subtract(difference);
-            test = c.guess(lowerBound);
+            average = upperBound.add(lowerBound).divide(BigInteger.valueOf(2));
+            test = c.guess(average);
             if (test.equalsIgnoreCase("higher")) {
-                upperBound = difference.subtract(BigInteger.valueOf(1));
+                upperBound = average.subtract(BigInteger.valueOf(1));
             } else if (test.equalsIgnoreCase("lower")) {
-                lowerBound = difference.add(BigInteger.valueOf(1));
+                lowerBound = average.add(BigInteger.valueOf(1));
             }
         }
-        return lowerBound;
+        return average;
     }
 }
