@@ -12,7 +12,7 @@ public class Guesser {
         BigInteger upperBound = new BigInteger("2");
         BigInteger lowerBound = new BigInteger("1");
         boolean condition = true;
-        while (condition == true) {
+        while (condition) {
             String high = c.guess(upperBound);
             if (high.equalsIgnoreCase("correct")) {
                 return upperBound;
@@ -29,15 +29,14 @@ public class Guesser {
             }
         }
         while (lowerBound.compareTo(upperBound) < 0) {
-            upperBound = lowerBound;
             BigInteger difference = upperBound.subtract(lowerBound).divide(BigInteger.valueOf(2));
             lowerBound = upperBound.subtract(difference);
             String test = c.guess(difference);
             if (test.equalsIgnoreCase("correct")) {
                 return difference;
-            } if (test.equalsIgnoreCase("higher")) {
+            } else if (test.equalsIgnoreCase("higher")) {
                 upperBound = difference.subtract(BigInteger.valueOf(1));
-            } if (test.equalsIgnoreCase("lower")) {
+            } else {
                 lowerBound = difference.add(BigInteger.valueOf(1));
             }
         }
