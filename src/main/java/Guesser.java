@@ -11,14 +11,17 @@ public class Guesser {
     public static BigInteger findNumber(Chooser c) {
         BigInteger upperBound = new BigInteger("2");
         BigInteger lowerBound = new BigInteger("1");
-        Boolean condition = true;
-        while (condition = true) {
+        boolean condition = true;
+        while (condition == true) {
             String high = c.guess(upperBound);
-            String low = c.guess(lowerBound);
             if (high.equalsIgnoreCase("correct")) {
                 return upperBound;
-            } else if (low.equalsIgnoreCase("correct"));
-            else if (high.equalsIgnoreCase("higher")) {
+            }
+            String low = c.guess(lowerBound);
+            if (low.equalsIgnoreCase("correct")) {
+            return lowerBound;
+            }
+            if (high.equalsIgnoreCase("higher")) {
                 lowerBound = upperBound;
                 upperBound = upperBound.multiply(BigInteger.valueOf(2));
             } else if (high.equalsIgnoreCase("lower")) {
