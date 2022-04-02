@@ -33,9 +33,9 @@ public class Guesser {
         while (!test.equalsIgnoreCase("correct")) {
             average = upperBound.add(lowerBound).divide(BigInteger.valueOf(2));
             test = c.guess(average);
-            if (test.equalsIgnoreCase("higher")) {
+            if (test.equalsIgnoreCase("lower")) {
                 upperBound = average.subtract(BigInteger.valueOf(1));
-            } else if (test.equalsIgnoreCase("lower")) {
+            } else if (test.equalsIgnoreCase("higher")) {
                 lowerBound = average.add(BigInteger.valueOf(1));
             }
         }
