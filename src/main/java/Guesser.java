@@ -13,10 +13,10 @@ public class Guesser {
         BigInteger lowerBound = new BigInteger("1");
         boolean condition = true;
         while (condition) {
-            String low = c.guess(lowerBound);
-            if (low.equalsIgnoreCase("correct")) {
-            return lowerBound;
-            }
+//            String low = c.guess(lowerBound);
+//            if (low.equalsIgnoreCase("correct")) {
+//            return lowerBound;
+//            }
             String high = c.guess(upperBound);
             if (high.equalsIgnoreCase("correct")) {
                 return upperBound;
