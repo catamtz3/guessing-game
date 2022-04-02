@@ -39,6 +39,6 @@ public class Guesser {
                 lowerBound = difference.add(BigInteger.valueOf(1));
             }
         }
-        return difference;
+        return lowerBound;
     }
 }
