@@ -34,9 +34,9 @@ public class Guesser {
             lowerBound = upperBound.subtract(difference);
             test = c.guess(lowerBound);
             if (test.equalsIgnoreCase("higher")) {
-                upperBound = difference.add(BigInteger.valueOf(1));
+                upperBound = difference.subtract(BigInteger.valueOf(1));
             } else if (test.equalsIgnoreCase("lower")) {
-                lowerBound = difference.subtract(BigInteger.valueOf(1));
+                lowerBound = difference.add(BigInteger.valueOf(1));
             }
         }
         return difference;
